@@ -1,0 +1,27 @@
+'''
+Draw a simple tensorboard graph.
+
+This code was written in Python 2.7 version.
+
+In terminal, insert following commands
+$ python file_name.py
+$ tensorboard --logdir=your/path/to/graph
+
+Then :yourhostname:6006/
+There seemed to occur no scalr data found error. But this was actually not an error. 
+Because there was nothing to present scalars in this code.
+It presents only a graph of nodes.
+So just go to graph section and check out how tensorboard draws graphs; nothing in the other sections.
+'''
+
+import tensorflow as tf
+a = tf.constant(2)
+b = tf.constant(3)
+x = tf.add(a, b)
+
+
+with tf.Session() as sess:
+	writer = tf.summary.FileWriter('.log/graph1',sess.graph)
+	print 
+    print sess.run(x)
+	writer.close()
